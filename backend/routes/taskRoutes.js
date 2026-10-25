@@ -1,6 +1,6 @@
 
-const express = require("express");
-const Task = require("../models/Task");
+import express from "express";
+import Task from "../models/Task.js";
 
 const router = express.Router();
 
@@ -41,7 +41,6 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
   try {
     const { title, completed, priority } = req.body;
-
     const updates = {};
 
     if (title !== undefined) updates.title = title;
@@ -83,4 +82,4 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
